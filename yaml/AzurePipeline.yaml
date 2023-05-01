@@ -14,7 +14,7 @@ stages:
           steps:
             - checkout: self
             - script: |
-                  sudo npm install -g json-server
+                  npm install -g json-server
                   json-server --watch ./json/db.json
             
             - task: Maven@4
