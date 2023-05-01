@@ -2,7 +2,7 @@ trigger: none
 pr: none
 
 pool: 
-    image: windows_latest
+    vmImage: windows_latest
     
 stages:
     - stage: RunNGServerAndAPITests
