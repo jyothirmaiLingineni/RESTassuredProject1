@@ -1,0 +1,34 @@
+trigger: none
+pr: none
+
+pool: 
+    image: windows_latest
+    
+stages:
+    - stage: RunNGServerAndAPITests
+      displayName : "Run NG Server And Run API Test Cases"
+      
+      jobs:
+        - job: RunNGServerAndAPITests
+          displayName : "Run NG Server And Run API Test Cases"
+          steps:
+            - checkout: self
+            - task: PowerShell@2
+              inputs:
+                targetType: 'inline'
+                script: |
+                  npm install json-server
+                  json-server --watch ./json/db.json
+                workingDirectory: '$(Build.SourceDirectory)'
+            
+            - task: Maven@4
+              inputs:
+                mavenPomFile: 'pom.xml'
+                publishJUnitResults: true
+                testResultsFiles: '**/surefire-reports/TEST-*.xml'
+                javaHomeOption: 'JDKVersion'
+                mavenVersionOption: 'Default'
+                mavenAuthenticateFeed: false
+                effectivePomSkip: false
+                sonarQubeRunAnalysis: false
+      
