@@ -19,7 +19,6 @@ stages:
                 script: |
                   npm install json-server
                   json-server --watch ./json/db.json
-                workingDirectory: '$(Build.SourceDirectory)'
             
             - task: Maven@4
               inputs:
