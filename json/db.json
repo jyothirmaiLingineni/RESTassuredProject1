@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "firstName": "Jyothi",
+      "lastName": "L",
+      "Id": 1
+    },
+    {
+      "firstName": "Vanshika",
+      "lastName": "K",
+      "Id": 2
+    },
+    {
+      "firstName": "Humshika",
+      "lastName": "Kotaprolu",
+      "Id": 3
+    },
+    {
+      "firstName": "Tom",
+      "lastName": "Cooper",
+      "id": 4
+    },
+    {
+      "firstName": "Tom",
+      "lastName": "Cooper",
+      "id": 5
+    }
+  ],
+  "subjects": [
+    {
+      "id": 1,
+      "name": "Automation"
+    },
+    {
+      "id": 2,
+      "name": "Devops"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
