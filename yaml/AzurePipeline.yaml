@@ -20,7 +20,7 @@ stages:
             - task: Maven@4
               inputs:
                 mavenPomFile: 'pom.xml'
-                goals: 'verify'
+                goals: 'package'
                 publishJUnitResults: true
                 testResultsFiles: '**/TEST-RESULT.xml'
                 javaHomeOption: 'JDKVersion'
