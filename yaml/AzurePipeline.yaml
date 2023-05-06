@@ -22,11 +22,21 @@ stages:
                 mavenPomFile: 'pom.xml'
                 goals: 'verify'
                 publishJUnitResults: true
-                testResultsFiles: '**/surefire-reports/TEST-*.xml'
+                testResultsFiles: '**/TEST-RESULT.xml'
                 javaHomeOption: 'JDKVersion'
                 jdkVersionOption: '1.17'
                 mavenVersionOption: 'Default'
                 mavenAuthenticateFeed: false
                 effectivePomSkip: false
                 sonarQubeRunAnalysis: false
-      
+
+            - task: PowerShell@2
+              inputs:
+                targetType: 'inline'
+                script: |
+                  Write-Host "TestResultsDirectory-->$(Common.TestResultsDirectory)"
+                  tree $(Common.TestResultsDirectory)
+                  Write-Host "SourcesDirectory-->$(Build.SourcesDirectory)"
+                  tree $(Build.SourcesDirectory)
+                  Write-Host "ArtifactStagingDirectory-->$(Build.ArtifactStagingDirectory)"
+                  tree $(Build.ArtifactStagingDirectory)
