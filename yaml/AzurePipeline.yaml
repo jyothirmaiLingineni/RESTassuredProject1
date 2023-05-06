@@ -40,3 +40,10 @@ stages:
                   tree $(Build.SourcesDirectory) /f
                   Write-Host "ArtifactStagingDirectory-->$(Build.ArtifactStagingDirectory)"
                   tree $(Build.ArtifactStagingDirectory) /f
+            
+            - task: PublishTestResults@2
+              inputs:
+                testResultsFormat: 'JUnit'
+                testResultsFiles: '**/test-output/testng-results.xml'
+                searchFolder: '$(Build.SourcesDirectory)'
+                testRunTitle: 'Junit Results'
