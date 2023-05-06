@@ -40,6 +40,7 @@ stages:
                   tree $(Build.SourcesDirectory) /f
                   Write-Host "ArtifactStagingDirectory-->$(Build.ArtifactStagingDirectory)"
                   tree $(Build.ArtifactStagingDirectory) /f
+                  Get-Content -Path "$(Build.SourcesDirectory)/test-output/testng-results.xml"
             
             - task: PublishTestResults@2
               inputs:
