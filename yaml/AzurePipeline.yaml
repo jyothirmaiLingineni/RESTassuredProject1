@@ -22,7 +22,7 @@ stages:
                 mavenPomFile: 'pom.xml'
                 goals: 'package'
                 publishJUnitResults: true
-                testResultsFiles: '**/TEST-RESULT.xml'
+                testResultsFiles: '**/junitreports/TEST-*.xml'
                 javaHomeOption: 'JDKVersion'
                 jdkVersionOption: '1.17'
                 mavenVersionOption: 'Default'
