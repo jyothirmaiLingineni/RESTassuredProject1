@@ -1,0 +1,49 @@
+trigger: none
+pr: none
+
+pool: 
+    vmImage: ubuntu-latest
+    
+stages:
+    - stage: RunNGServerAndAPITests
+      displayName : "Run NG Server And Run API Test Cases"
+      
+      jobs:
+        - job: RunNGServerAndAPITests
+          displayName : "Run NG Server And Run API Test Cases"
+          steps:
+            - checkout: self    
+
+            - task: Bash@3
+              inputs:
+                targetType: 'inline'
+                script: | 
+                  kill -9 $(ps -ef | grep 'json-serve[r]' | grep -v 'grep' | awk {'print $2'})
+
+            - task: Maven@4
+              inputs:
+                mavenPomFile: 'pom.xml'
+                goals: 'package'
+                publishJUnitResults: true                
+                javaHomeOption: 'JDKVersion'
+                jdkVersionOption: '1.17'
+                mavenVersionOption: 'Default'
+                mavenAuthenticateFeed: false
+                effectivePomSkip: false
+                sonarQubeRunAnalysis: false
+
+           
+            - task: PowerShell@2
+              inputs:
+                targetType: 'inline'
+                script: |
+                  Write-Host "TestResultsDirectory-->$(Common.TestResultsDirectory)"
+                  tree $(Common.TestResultsDirectory) /f
+                  Write-Host "SourcesDirectory-->$(Build.SourcesDirectory)"
+                  tree $(Build.SourcesDirectory) /f
+                  Write-Host "ArtifactStagingDirectory-->$(Build.ArtifactStagingDirectory)"
+                  tree $(Build.ArtifactStagingDirectory) /f
+                  Get-Content -Path "$(Build.SourcesDirectory)/test-output/testng-results.xml"
+                  Get-Content -Path "$(Build.SourcesDirectory)/target/surefire-reports/junitreports/TEST-*.xml"
+                  Get-Content -Path "$(Build.SourcesDirectory)/target/surefire-reports/TEST-TestSuite.xml"
+            
