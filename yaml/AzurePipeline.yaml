@@ -13,10 +13,7 @@ stages:
           displayName : "Run NG Server And Run API Test Cases"
           steps:
             - checkout: self
-            - script: |
-                  npm install -g json-server
-                  json-server --watch ./json/db.json
-            
+        
             - task: Maven@4
               inputs:
                 mavenPomFile: 'pom.xml'
