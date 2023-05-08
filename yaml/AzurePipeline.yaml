@@ -39,4 +39,5 @@ stages:
                   tree $(Build.ArtifactStagingDirectory) /f
                   Get-Content -Path "$(Build.SourcesDirectory)/test-output/testng-results.xml"
                   Get-Content -Path "$(Build.SourcesDirectory)/target/surefire-reports/junitreports/TEST-*.xml"
+                  Get-Content -Path "$(Build.SourcesDirectory)/target/surefire-reports/TEST-TestSuite.xml"
             
