@@ -41,6 +41,7 @@ stages:
                   Write-Host "ArtifactStagingDirectory-->$(Build.ArtifactStagingDirectory)"
                   tree $(Build.ArtifactStagingDirectory) /f
                   Get-Content -Path "$(Build.SourcesDirectory)/test-output/testng-results.xml"
+                  Get-Content -Path "$(Build.SourcesDirectory)/target/surefire-reports/junitreports/TEST-*.xml"
             
             - task: PublishTestResults@2
               inputs:
