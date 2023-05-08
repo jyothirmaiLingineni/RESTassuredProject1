@@ -12,8 +12,15 @@ stages:
         - job: RunNGServerAndAPITests
           displayName : "Run NG Server And Run API Test Cases"
           steps:
-            - checkout: self
-        
+            - checkout: self      
+            - task: Bash@3
+              inputs:
+                targetType: 'inline'
+                script: | 
+                  npm install -g json-server
+                  nohup json-server --watch ./json/db.json &
+                  ps -ef | grep -i json
+
             - task: Maven@4
               inputs:
                 mavenPomFile: 'pom.xml'
