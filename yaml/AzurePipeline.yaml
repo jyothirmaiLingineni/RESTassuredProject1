@@ -46,6 +46,6 @@ stages:
             - task: PublishTestResults@2
               inputs:
                 testResultsFormat: 'JUnit'
-                testResultsFiles: '**/test-output/testng-results.xml'
+                testResultsFiles: '**/junitreports/TEST-*.xml'
                 searchFolder: '$(Build.SourcesDirectory)'
                 testRunTitle: 'Junit Results'
