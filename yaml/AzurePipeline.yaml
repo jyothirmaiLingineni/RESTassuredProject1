@@ -42,7 +42,8 @@ stages:
               inputs:
                 targetType: 'inline'
                 script: | 
-                  ps -ef | grep -i json-serve[r] | xargs kill
+                  kill -9 $(ps -ef | grep 'json-serve[r]' | grep -v 'grep' | awk {'print $2'})
+
 
             - task: PowerShell@2
               inputs:
