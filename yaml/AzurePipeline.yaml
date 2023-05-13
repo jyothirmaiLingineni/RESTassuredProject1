@@ -29,6 +29,7 @@ stages:
                   ps -ef | grep -i json
 
             - task: Maven@4 
+              displayName : "Build package and Run test cases"
               inputs:
                 mavenPomFile: 'pom.xml'
                 goals: 'package'
@@ -41,6 +42,7 @@ stages:
                 sonarQubeRunAnalysis: false
 
             - task: Bash@3
+              displayName : "Stop the Json-server"
               inputs:
                 targetType: 'inline'
                 script: | 
