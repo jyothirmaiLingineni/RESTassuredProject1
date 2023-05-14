@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 public class RestassuredAPIExamples {
 
-
     @Test
     public void test1_get() {
 
