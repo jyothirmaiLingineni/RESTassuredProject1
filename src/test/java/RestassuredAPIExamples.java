@@ -30,7 +30,7 @@ public class RestassuredAPIExamples {
                 .log().all();
     }
 
-    @Test
+    @Test(priority = 1)
     public void test3_post() {
 
         JSONObject request = new JSONObject();
@@ -52,7 +52,7 @@ public class RestassuredAPIExamples {
                 .statusCode(201)
                 .log().all();
     }
-    @Test
+    @Test(priority = 2)
     public void test4_patch() {
 
         JSONObject request = new JSONObject();
@@ -72,7 +72,7 @@ public class RestassuredAPIExamples {
                 .log().all();
     }
 
-    @Test
+    @Test(priority =3)
     public void test5_delete() {
 
         baseURI = "http://localhost:3000/";
