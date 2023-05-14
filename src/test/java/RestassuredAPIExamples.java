@@ -1,8 +1,10 @@
 import io.restassured.http.ContentType;
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
+import io.restassured.RestAssured;
 
 import static io.restassured.RestAssured.*;
+
 public class RestassuredAPIExamples {
 
     @Test
