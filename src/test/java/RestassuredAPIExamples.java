@@ -71,8 +71,21 @@ public class RestassuredAPIExamples {
                 .statusCode(200)
                 .log().all();
     }
+    
+      @Test(priority = 3)
+    public void test2_get() {
 
-    @Test(priority =3)
+        baseURI = "http://localhost:3000";
+        given().
+                param("name", "Automation")
+                .get("/subjects")
+                .then()
+                .statusCode(200)
+                .log().all();
+    }
+
+
+    @Test(priority =4)
     public void test5_delete() {
 
         baseURI = "http://localhost:3000/";
@@ -81,6 +94,18 @@ public class RestassuredAPIExamples {
                 delete("/users/4").
                 then()
                 .statusCode(200)
+                .log().all();
+    }
+    
+     @Test(priority =5)
+    public void test5_delete() {
+
+        baseURI = "http://localhost:3000/";
+
+                when().
+                delete("/users/4").
+                then()
+                .statusCode(204)
                 .log().all();
     }
 
