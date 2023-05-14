@@ -30,7 +30,7 @@ public class RestassuredAPIExamples {
         request.put("firstName", "Tommy");
         request.put("lastName", "Cooper");
         request.put("subjectId", "1");
-        request.put("id", '5');
+        request.put("id", '4');
 
         given().
                 contentType(ContentType.JSON).
