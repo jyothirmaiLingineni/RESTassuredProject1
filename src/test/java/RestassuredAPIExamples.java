@@ -77,17 +77,17 @@ public class RestassuredAPIExamples {
                 .log().all();
     }
 
-//     @Test(priority = 5)
-//     public void test5_delete() {
+    @Test(priority = 5)
+    public void test5_delete() {
 
-//         baseURI = "http://localhost:3000/";
+        baseURI = "http://localhost:3000/";
 
-//         when().
-//                 delete("/users/4").
-//                 then()
-//                 .statusCode(200)
-//                 .log().all();
-//     }
+        when().
+                delete("/users/4").
+                then()
+                .statusCode(200)
+                .log().all();
+    }
 
 //    @Test(priority = 6)
 //    public void test6_get() {
@@ -100,7 +100,7 @@ public class RestassuredAPIExamples {
 //                .log().all();
 //    }
 
-   @Test(priority = 5)
+   @Test(priority = 6)
    public void test2_get() {
 
        baseURI = "http://localhost:3000";
@@ -111,27 +111,4 @@ public class RestassuredAPIExamples {
                .statusCode(200)
                .log().all();
    }
-    
-     @Test
-    void test8_post() {
-        Map<String ,Object> map =new HashMap<String,Object>();
-
-       JSONObject request=new JSONObject(map);
-
-        request.put("first_name","Jyothi1");
-        request.put("last_name","L1");
-        request.put("subjectId","10");
-
-        System.out.println(request.toJSONString());
-        given().
-                contentType(ContentType.JSON).
-                accept(ContentType.JSON).
-                header("Content-Type", "application/json").
-                body(request.toJSONString()).
-                when().
-                post("https://reqres.in/api/users/2").
-                then().log().all().
-                statusCode(201);
     }
-
-}
