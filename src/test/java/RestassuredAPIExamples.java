@@ -22,7 +22,7 @@ public class RestassuredAPIExamples {
 
      @Test(priority = 2)
    public void test3_post() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         //Specify base URI
         RestAssured.baseURI="http://localhost:3000/";
 
