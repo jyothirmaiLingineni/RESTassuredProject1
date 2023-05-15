@@ -113,7 +113,7 @@ public class RestassuredAPIExamples {
    }
     
      @Test
-    void test3_post() {
+    void test8_post() {
         Map<String ,Object> map =new HashMap<String,Object>();
 
        JSONObject request=new JSONObject(map);
