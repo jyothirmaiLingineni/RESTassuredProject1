@@ -111,5 +111,27 @@ public class RestassuredAPIExamples {
                .statusCode(200)
                .log().all();
    }
+    
+     @Test
+    void test3_post() {
+        Map<String ,Object> map =new HashMap<String,Object>();
+
+       JSONObject request=new JSONObject(map);
+
+        request.put("first_name","Jyothi1");
+        request.put("last_name","L1");
+        request.put("subjectId","10");
+
+        System.out.println(request.toJSONString());
+        given().
+                contentType(ContentType.JSON).
+                accept(ContentType.JSON).
+                header("Content-Type", "application/json").
+                body(request.toJSONString()).
+                when().
+                post("https://reqres.in/api/users/2").
+                then().log().all().
+                statusCode(201);
+    }
 
 }
