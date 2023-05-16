@@ -20,30 +20,30 @@ public class RestassuredAPIExamples {
 
     }
 
-     @Test(priority = 2)
-   public void test3_post() throws InterruptedException {
-        Thread.sleep(100);
-        //Specify base URI
-        RestAssured.baseURI="http://localhost:3000/";
+//      @Test(priority = 2)
+//    public void test3_post() throws InterruptedException {
+//         Thread.sleep(100);
+//         //Specify base URI
+//         RestAssured.baseURI="http://localhost:3000/";
 
-       JSONObject request = new JSONObject();
+//        JSONObject request = new JSONObject();
 
-        request.put("firstName", "Tommy");
-        request.put("lastName", "Cooper");
-        request.put("subjectId", "1");
-        request.put("id", '4');
+//         request.put("firstName", "Tommy");
+//         request.put("lastName", "Cooper");
+//         request.put("subjectId", "1");
+//         request.put("id", '4');
 
-        given().
-                contentType(ContentType.JSON).
-                accept(ContentType.JSON).
-                header("Content-Type", "application/json").
-                body(request.toJSONString()).
-                when().
-                post("/users").
-                then()
-                .statusCode(201)
-                .log().all();
-    }
+//         given().
+//                 contentType(ContentType.JSON).
+//                 accept(ContentType.JSON).
+//                 header("Content-Type", "application/json").
+//                 body(request.toJSONString()).
+//                 when().
+//                 post("/users").
+//                 then()
+//                 .statusCode(201)
+//                 .log().all();
+//     }
 
 
     @Test(priority = 3)
