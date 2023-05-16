@@ -101,7 +101,7 @@ public class RestassuredAPIExamples {
 //    }
 
    @Test(priority = 6)
-   public void test2_get() {
+   public void test7_get() {
 
        baseURI = "http://localhost:3000";
        given().
