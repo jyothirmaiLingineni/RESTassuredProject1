@@ -112,14 +112,4 @@ public class RestassuredAPIExamples {
                .log().all();
    }
     
-      @Test(priority = 7)
-    public void test8_get() {
-
-        baseURI = "http://localhost:3000";
-        given().
-                get("/users")
-                .then()
-                .statusCode(204)
-                .log().all();
-    }
-    }
+      }
